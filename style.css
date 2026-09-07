@@ -10,6 +10,8 @@ h1 { margin: 6px 0; font-size: 1.25rem; min-height: 2.8em; display: grid; place-
 .scene-panel { grid-area: scene; position: relative; line-height: 0; overflow: hidden; }
 #scene { display: block; width: 640px; height: auto; image-rendering: pixelated; }
 .hover-message { position: absolute; margin: 0; bottom: 0; width: 100%; padding: 14px; line-height: 1.2; text-align: center; color: #fff1cd; background: #140d0ddd; font: 700 .95rem Arial, sans-serif; }
+.characters-layer { position: absolute; inset: 0; pointer-events: none; }
+.character-sprite { position: absolute; display: block; image-rendering: pixelated; }
 .logo-panel { grid-area: logo; display: grid; align-content: center; justify-items: center; text-align: center; padding: 18px 12px; background: linear-gradient(180deg, #27394d, #17110e 70%); }
 .logo-mark { color: #ffd269; font-size: 3.2rem; text-shadow: 0 0 15px #ffc966; }
 .logo-panel p { margin: 8px 0; font: 700 .68rem Arial, sans-serif; letter-spacing: .15em; color: #dab674; }

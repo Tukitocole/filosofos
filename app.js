@@ -2,6 +2,7 @@ const state = { character: null, faces: {} };
 const face = document.querySelector('#face');
 const scene = document.querySelector('#scene');
 const map = document.querySelector('#game-map');
+const spriteLayer = document.querySelector('#sprites');
 const nameTitle = document.querySelector('#character-name');
 const hoverMessage = document.querySelector('#hover-message');
 const conversation = document.querySelector('#conversation');
@@ -51,6 +52,21 @@ function addArea(coords, character) {
   map.append(area);
 }
 
+function addSprite(coords, character) {
+  const [x1, , x2, y2] = coords.split(',').map(Number);
+  const WIDTH = 180;
+  const HEIGHT = 240;
+  const img = document.createElement('img');
+  img.className = 'character-sprite';
+  img.src = state.faces[character] || 'assets/socrates.png';
+  img.alt = '';
+  img.style.left = `${Math.round((x1 + x2) / 2 - WIDTH / 2)}px`;
+  img.style.top = `${y2 - HEIGHT}px`;
+  img.style.width = `${WIDTH}px`;
+  img.style.height = `${HEIGHT}px`;
+  spriteLayer.append(img);
+}
+
 async function loadGame() {
   const requested = new URLSearchParams(window.location.search).get('config') || 'config.json';
   const configName = requested.split('/').pop();
@@ -62,7 +78,10 @@ async function loadGame() {
   state.faces = config.rostros || {};
   for (const areaHtml of config.areasPersonajes || []) {
     const found = areaHtml.match(/coords="([0-9]+,[0-9]+,[0-9]+,[0-9]+)"[^>]*alt="([^"]+)"/u);
-    if (found) addArea(found[1], found[2]);
+    if (found) {
+      addArea(found[1], found[2]);
+      addSprite(found[1], found[2]);
+    }
   }
   hoverMessage.textContent = 'Pasá el mouse sobre un personaje.';
 }
