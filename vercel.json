@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/filosofos-aventura/(.*)", "destination": "/$1", "permanent": true }
+  ]
+}
