@@ -26,7 +26,8 @@ module.exports = async (req, res) => {
         model: 'openai/gpt-oss-20b',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.7,
-        max_completion_tokens: 160
+        reasoning_effort: 'low',
+        max_completion_tokens: 400
       })
     });
     const result = await groqResponse.json();
