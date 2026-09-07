@@ -1,0 +1,17 @@
+{
+  "escenario": "assets/salon-de-las-ideas.png",
+  "areasPersonajes": [
+    "<area shape=\"rect\" coords=\"0,200,127,479\" href=\"socrates.html\" alt=\"Sócrates\">",
+    "<area shape=\"rect\" coords=\"128,200,255,479\" href=\"platon.html\" alt=\"Platón\">",
+    "<area shape=\"rect\" coords=\"256,200,383,479\" href=\"aristoteles.html\" alt=\"Aristóteles\">",
+    "<area shape=\"rect\" coords=\"384,200,511,479\" href=\"confucio.html\" alt=\"Confucio\">",
+    "<area shape=\"rect\" coords=\"512,200,639,479\" href=\"hipatia.html\" alt=\"Hipatia de Alejandría\">"
+  ],
+  "rostros": {
+    "Sócrates": "assets/socrates.png",
+    "Platón": "assets/platon.png",
+    "Aristóteles": "assets/aristoteles.png",
+    "Confucio": "assets/confucio.png",
+    "Hipatia de Alejandría": "assets/hipatia.png"
+  }
+}

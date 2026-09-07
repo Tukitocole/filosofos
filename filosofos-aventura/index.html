@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El Salón de las Ideas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <section class="panel character-panel" aria-label="Personaje seleccionado">
+      <p class="panel-label">CONVERSANDO CON</p>
+      <img id="face" src="assets/socrates.png" width="180" height="240" alt="">
+      <h1 id="character-name">Elegí un personaje</h1>
+    </section>
+
+    <section class="panel scene-panel" aria-label="Escenario">
+      <img id="scene" width="640" height="480" usemap="#game-map" alt="El Salón de las Ideas">
+      <map name="game-map" id="game-map"></map>
+      <p id="hover-message" class="hover-message" aria-live="polite">Cargando escenario…</p>
+    </section>
+
+    <section class="panel logo-panel" aria-label="Logo del juego">
+      <div class="logo-mark" aria-hidden="true">✦</div>
+      <p>AVENTURA GRÁFICA</p>
+      <h2>EL SALÓN<br>DE LAS IDEAS</h2>
+      <span>Preguntá. Escuchá. Pensá.</span>
+    </section>
+
+    <section class="panel chat-panel" id="conversacion" aria-label="Conversación">
+      <div id="conversation" class="conversation" aria-live="polite">
+        <p class="empty-state">Elegí a una persona del escenario para empezar a conversar.</p>
+      </div>
+      <form id="question-form" class="question-form">
+        <label class="sr-only" for="question">Tu pregunta</label>
+        <input id="question" name="question" maxlength="500" placeholder="Elegí un personaje para hacerle una pregunta" disabled required>
+        <button id="send" type="submit" disabled>Preguntar</button>
+      </form>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

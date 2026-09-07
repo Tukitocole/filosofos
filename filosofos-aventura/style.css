@@ -1,0 +1,33 @@
+:root { color-scheme: dark; font-family: Georgia, serif; background: #15100d; color: #f8e8c7; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: radial-gradient(circle at top, #3c2919, #100c0a 65%); }
+.game-shell { width: min(1120px, calc(100% - 32px)); margin: 32px auto; display: grid; grid-template-columns: 210px minmax(0, 640px) 210px; grid-template-areas: "character scene logo" "chat chat chat"; gap: 14px; }
+.panel { border: 2px solid #9c7136; background: linear-gradient(145deg, #29201b, #17110e); box-shadow: 0 8px 24px #0008, inset 0 0 0 4px #3f2d1c; }
+.character-panel { grid-area: character; text-align: center; padding: 14px; }
+.panel-label { margin: 0 0 10px; color: #d6ab65; font: 700 .72rem/1 Arial, sans-serif; letter-spacing: .12em; }
+.character-panel img { width: 180px; height: 240px; object-fit: contain; image-rendering: pixelated; }
+h1 { margin: 6px 0; font-size: 1.25rem; min-height: 2.8em; display: grid; place-items: center; }
+.scene-panel { grid-area: scene; position: relative; line-height: 0; overflow: hidden; }
+#scene { display: block; width: 640px; height: auto; image-rendering: pixelated; }
+.hover-message { position: absolute; margin: 0; bottom: 0; width: 100%; padding: 14px; line-height: 1.2; text-align: center; color: #fff1cd; background: #140d0ddd; font: 700 .95rem Arial, sans-serif; }
+.logo-panel { grid-area: logo; display: grid; align-content: center; justify-items: center; text-align: center; padding: 18px 12px; background: linear-gradient(180deg, #27394d, #17110e 70%); }
+.logo-mark { color: #ffd269; font-size: 3.2rem; text-shadow: 0 0 15px #ffc966; }
+.logo-panel p { margin: 8px 0; font: 700 .68rem Arial, sans-serif; letter-spacing: .15em; color: #dab674; }
+.logo-panel h2 { margin: 2px 0 16px; color: #ffe3a2; font-size: 1.5rem; line-height: 1.05; }
+.logo-panel span { color: #d2c4ad; font-size: .9rem; font-style: italic; }
+.chat-panel { grid-area: chat; min-height: 255px; padding: 16px; display: grid; grid-template-rows: 1fr auto; gap: 14px; }
+.conversation { overflow: auto; max-height: 270px; padding-right: 4px; }
+.empty-state { text-align: center; color: #cdbb9e; margin: 75px 0; }
+.message { max-width: 78%; margin: 10px 0; padding: 10px 13px; border-left: 4px solid #d3a85d; background: #35251b; border-radius: 2px 10px 10px 2px; line-height: 1.35; }
+.message.user { margin-left: auto; border-left: 0; border-right: 4px solid #78a5b1; border-radius: 10px 2px 2px 10px; background: #1f3740; }
+.message.error { border-color: #e56b61; background: #48211f; }
+.message strong { color: #f2cb81; font: 700 .7rem Arial, sans-serif; letter-spacing: .1em; }
+.message p { margin: 5px 0 0; white-space: pre-wrap; }
+.question-form { display: flex; gap: 9px; }
+input, button { min-height: 46px; border: 1px solid #a7783e; font: inherit; }
+input { flex: 1; min-width: 0; padding: 10px 12px; color: #fff0d0; background: #100d0b; }
+button { padding: 0 18px; color: #281805; cursor: pointer; font-weight: 700; background: linear-gradient(#f2cf80, #bd873d); }
+button:disabled, input:disabled { cursor: not-allowed; opacity: .55; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+@media (max-width: 940px) { .game-shell { grid-template-columns: 180px minmax(0, 1fr); grid-template-areas: "character logo" "scene scene" "chat chat"; } .logo-panel { min-height: 240px; } }
+@media (max-width: 680px) { .game-shell { width: min(100% - 16px, 640px); margin: 8px auto; grid-template-columns: 1fr; grid-template-areas: "logo" "scene" "character" "chat"; gap: 8px; } .scene-panel { overflow-x: auto; } .character-panel img { height: 190px; } .chat-panel { min-height: 290px; } .question-form { flex-direction: column; } }
